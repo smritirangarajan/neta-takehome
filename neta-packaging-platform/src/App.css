@@ -1,0 +1,252 @@
+/* Main App Styles */
+.App {
+  min-height: 100vh;
+  background-color: #f8fafc;
+}
+
+
+
+/* Main Content */
+.main-content {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Common Components */
+.table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  overflow-y: visible;
+  margin: 1rem 0;
+  max-width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+
+th {
+  background-color: #f8fafc;
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+  color: #374151;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+td {
+  padding: 1rem;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: top;
+}
+
+tr:hover {
+  background-color: #f9fafb;
+}
+
+/* Buttons */
+.action-btn, .submit-btn, .edit-btn, .save-btn, .cancel-btn {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.9rem;
+}
+
+.action-btn.primary, .submit-btn.primary {
+  background-color: #065f46;
+  color: white;
+}
+
+.action-btn.primary:hover, .submit-btn.primary:hover {
+  background-color: #047857;
+  transform: translateY(-1px);
+}
+
+.action-btn.secondary, .submit-btn.secondary {
+  background-color: #6b7280;
+  color: white;
+}
+
+.action-btn.secondary:hover, .submit-btn.secondary:hover {
+  background-color: #4b5563;
+}
+
+.edit-btn {
+  background-color: #059669;
+  color: white;
+}
+
+.edit-btn:hover {
+  background-color: #047857;
+}
+
+.save-btn {
+  background-color: #065f46;
+  color: white;
+}
+
+.save-btn:hover {
+  background-color: #047857;
+}
+
+.cancel-btn {
+  background-color: #ef4444;
+  color: white;
+}
+
+.cancel-btn:hover {
+  background-color: #dc2626;
+}
+
+/* Status Badges */
+.status-badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+}
+
+.status-badge.valid, .status-valid {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.error, .status-error {
+  background-color: #fee2e2;
+  color: #991b1b;
+}
+
+.status-badge.review, .status-review {
+  background-color: #ecfdf5;
+  color: #065f46;
+}
+
+.status-badge.exempt {
+  background-color: #d1fae5;
+  color: #065f46;
+}
+
+.status-badge.liable {
+  background-color: #ecfdf5;
+  color: #047857;
+}
+
+/* Loading States */
+.dashboard-loading, .no-data, .no-simulation {
+  text-align: center;
+  padding: 3rem;
+  color: #6b7280;
+}
+
+.loading-spinner {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #e5e7eb;
+  border-top: 4px solid #065f46;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 1rem;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error Boundary */
+.error-boundary {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  padding: 2rem;
+}
+
+.error-content {
+  text-align: center;
+  background: white;
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  max-width: 500px;
+}
+
+.error-content h2 {
+  color: #dc2626;
+  margin-bottom: 1rem;
+}
+
+.error-content p {
+  color: #6b7280;
+  margin-bottom: 1.5rem;
+}
+
+.error-content details {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.error-content pre {
+  background: #f3f4f6;
+  padding: 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  color: #374151;
+  overflow-x: auto;
+}
+
+.retry-btn {
+  background-color: #065f46;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.retry-btn:hover {
+  background-color: #047857;
+  transform: translateY(-1px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .nav-links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .table-container {
+    overflow-x: auto;
+  }
+  
+  table {
+    font-size: 0.8rem;
+  }
+  
+  th, td {
+    padding: 0.5rem;
+  }
+}

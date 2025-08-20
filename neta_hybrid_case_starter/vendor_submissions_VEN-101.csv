@@ -1,0 +1,6 @@
+vendor_id,sku_id,component,material_name,material_category,weight_value,weight_unit,quantity_basis,case_size,notes
+VEN-101,SKU-001,Tray,Paperboard (coated),Paper/Fiber,0.78,oz,unit,,Uses ounces; normalize to grams
+VEN-101,SKU-001,Liner,Bio-based liner,Coatings/Liners,1.2,g,unit,,
+VEN-101,SKU-001,Top film,Multi-layer film (PET/PE),Flexible Plastic,2.6,g,unit,,
+VEN-101,SKU-014,Carton,Cardboard,Paper/Fiber,12,g,unit,,Invalid material name (should be Paperboard)
+VEN-101,SKU-014,Inner pouch,LDPE (film),Flexible Plastic,,g,unit,,Missing weight_value

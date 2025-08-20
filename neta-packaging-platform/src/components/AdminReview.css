@@ -1,0 +1,260 @@
+/* Admin Review Styles */
+.admin-review {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.review-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.review-header h2 {
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.review-header p {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+/* Review Filters */
+.review-filters {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-width: 200px;
+}
+
+.filter-group label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.filter-group select {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+}
+
+.filter-actions {
+  margin-left: auto;
+}
+
+/* Table Styles */
+.admin-review .table-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.admin-review table {
+  width: 100%;
+  min-width: 1200px;
+  border-collapse: collapse;
+}
+
+.admin-review th,
+.admin-review td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: top;
+}
+
+.admin-review th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  color: #374151;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.admin-review tr:hover {
+  background-color: #f9fafb;
+}
+
+.valid-row {
+  background-color: #f0fdf4;
+}
+
+.invalid-row {
+  background-color: #fef2f2;
+}
+
+.valid-row:hover {
+  background-color: #dcfce7;
+}
+
+.invalid-row:hover {
+  background-color: #fee2e2;
+}
+
+/* Cell Content Styles */
+.vendor-name, .sku-name, .material-name {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.vendor-id, .sku-id, .material-category {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.normalized-weight {
+  font-weight: 600;
+  color: #065f46;
+}
+
+.original-weight {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+.fee-amount {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 1.1rem;
+}
+
+.fee-rate {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: 0.25rem;
+}
+
+/* Edit Form Styles */
+.edit-actions, .row-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-actions input,
+.edit-actions select {
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+/* Review Summary */
+.review-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.summary-stats {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  min-width: 120px;
+}
+
+.stat-item strong {
+  display: block;
+  color: #065f46;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.review-actions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Loading State */
+.admin-review-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 3rem;
+}
+
+.admin-review-loading p {
+  color: #6b7280;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .admin-review {
+    padding: 1rem;
+  }
+  
+  .review-header h2 {
+    font-size: 2rem;
+  }
+  
+  .review-filters {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  
+  .filter-actions {
+    margin-left: 0;
+  }
+  
+  .review-summary {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .summary-stats {
+    justify-content: space-around;
+  }
+  
+  .review-actions {
+    justify-content: stretch;
+  }
+  
+  .review-actions button {
+    flex: 1;
+  }
+}

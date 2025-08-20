@@ -1,0 +1,13 @@
+{
+  "files": [
+    "materials.csv",
+    "fees.csv",
+    "vendors.csv",
+    "products.csv",
+    "vendor_submissions_VEN-101.csv",
+    "vendor_submissions_VEN-107.xlsx",
+    "vendor_submissions_VEN-104.csv",
+    "README_dataset.txt",
+    "Neta_Hybrid_Case_README.md"
+  ]
+}

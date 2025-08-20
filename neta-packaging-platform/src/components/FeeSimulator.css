@@ -1,0 +1,383 @@
+/* Fee Simulator Styles */
+.fee-simulator {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.simulator-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.simulator-header h2 {
+  color: #1f2937;
+  margin-bottom: 0.5rem;
+  font-size: 2.5rem;
+  background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.simulator-header p {
+  color: #6b7280;
+  font-size: 1.1rem;
+}
+
+/* Simulator Content */
+.simulator-content {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Submission Selection */
+.submission-selection {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.submission-selection h3 {
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.submission-selection .table-container {
+  overflow-x: auto;
+}
+
+.submission-selection table {
+  width: 100%;
+  min-width: 1000px;
+  border-collapse: collapse;
+}
+
+.submission-selection th,
+.submission-selection td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #f3f4f6;
+  vertical-align: top;
+}
+
+.submission-selection th {
+  background-color: #f8fafc;
+  font-weight: 600;
+  color: #374151;
+}
+
+.submission-selection tr:hover {
+  background-color: #f9fafb;
+}
+
+.selected-row {
+  background-color: #ecfdf5 !important;
+  border-left: 4px solid #065f46;
+}
+
+.selected-row:hover {
+  background-color: #d1fae5 !important;
+}
+
+/* Simulation Panel */
+.simulation-panel {
+  background: white;
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.simulation-panel h3 {
+  color: #1f2937;
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Simulation Form */
+.simulation-form {
+  margin-bottom: 2rem;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-group label {
+  font-weight: 600;
+  color: #374151;
+  font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  background: white;
+  transition: border-color 0.2s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #065f46;
+  box-shadow: 0 0 0 3px rgba(6, 95, 70, 0.1);
+}
+
+.simulation-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Simulation Results */
+.simulation-results {
+  margin-top: 3rem;
+  padding: 2rem;
+  background: #f9fafb;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+
+.simulation-results h4 {
+  color: #1f2937;
+  margin-bottom: 2rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Results Comparison */
+.results-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.comparison-card {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+.comparison-card.current {
+  border-left: 4px solid #6b7280;
+}
+
+.comparison-card.simulated {
+  border-left: 4px solid #065f46;
+}
+
+.comparison-card h5 {
+  color: #1f2937;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid #f3f4f6;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-item strong {
+  color: #374151;
+  font-weight: 600;
+}
+
+.result-item.total-fee {
+  background: #f9fafb;
+  margin: 0.5rem -1rem 0;
+  padding: 1rem;
+  border-radius: 6px;
+  border: none;
+}
+
+.result-item.total-fee strong {
+  color: #065f46;
+  font-size: 1.1rem;
+}
+
+/* Impact Analysis */
+.impact-analysis {
+  background: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  margin-bottom: 2rem;
+}
+
+.impact-analysis h5 {
+  color: #1f2937;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.impact-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+
+.impact-item strong {
+  color: #374151;
+  font-weight: 600;
+}
+
+.change {
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.change.increase {
+  color: #dc2626;
+}
+
+.change.decrease {
+  color: #059669;
+}
+
+/* Cell Content Styles */
+.vendor-info, .sku-info, .material-info, .weight-info, .fee-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.vendor-name, .sku-name, .material-name {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.vendor-id, .sku-id, .material-category {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.normalized-weight {
+  font-weight: 600;
+  color: #065f46;
+}
+
+.original-weight {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+.fee-amount {
+  font-weight: 600;
+  color: #1f2937;
+  font-size: 1.1rem;
+}
+
+.fee-rate {
+  font-size: 0.85rem;
+  color: #6b7280;
+}
+
+/* Simulator Actions */
+.simulator-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-top: 3rem;
+  padding: 2rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+}
+
+/* Loading State */
+.fee-simulator-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  padding: 3rem;
+}
+
+.fee-simulator-loading p {
+  color: #6b7280;
+  margin-top: 1rem;
+  font-size: 1.1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .fee-simulator {
+    padding: 1rem;
+  }
+  
+  .simulator-header h2 {
+    font-size: 2rem;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .results-comparison {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .impact-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .simulation-actions,
+  .simulator-actions {
+    flex-direction: column;
+  }
+  
+  .result-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

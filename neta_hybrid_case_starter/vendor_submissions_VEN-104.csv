@@ -1,0 +1,5 @@
+vendor_id,sku_id,component,material_name,material_category,weight_value,weight_unit,quantity_basis,case_size,notes
+VEN-104,SKU-007,Pouch,LDPE (film),Flex Plastic,6.2,g,unit,,Invalid category spelling
+VEN-104,SKU-007,Label,Paper label,Paper/Fiber,0.8000001,grams,unit,,Unit should be 'g'
+VEN-104,SKU-013,Pouch,Multi-layer film (PET/PE),Flexible Plastic,0.24,oz,unit,,
+VEN-104,SKU-016,Pouch,LDPE (film),Flexible Plastic,6.0,g,unit,,
