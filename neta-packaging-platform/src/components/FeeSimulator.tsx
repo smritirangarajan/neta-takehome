@@ -184,6 +184,7 @@ const FeeSimulator: React.FC<FeeSimulatorProps> = ({ onComplete, onDataUpdate })
       <div className="simulator-header">
         <h2>EPR Fee Simulation & Optimization</h2>
         <p>Model fee changes by modifying material and weight parameters</p>
+        <p className="simulator-hint">💡 <strong>Optional:</strong> Run a simulation to see fee impacts, or continue directly to the dashboard</p>
       </div>
 
       <div className="simulator-content">
@@ -428,7 +429,6 @@ const FeeSimulator: React.FC<FeeSimulatorProps> = ({ onComplete, onDataUpdate })
           <button 
             className="action-btn primary"
             onClick={handleComplete}
-            disabled={!selectedSubmission || !simulationResults}
           >
             Continue to Dashboard
           </button>
