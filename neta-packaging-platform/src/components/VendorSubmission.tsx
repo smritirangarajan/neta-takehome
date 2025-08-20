@@ -342,16 +342,21 @@ const VendorSubmission: React.FC<VendorSubmissionProps> = ({ onComplete, onDataU
   };
 
   const handleBulkSubmit = () => {
-    const validData = fileData.filter((_, index) => 
-      validationResults[index]?.isValid
+    // Include ALL data - both valid and those with warnings (only exclude rows with errors)
+    const dataToSubmit = fileData.filter((_, index) => 
+      validationResults[index]?.severity !== 'error'
     );
     
-    if (validData.length === 0) {
-      alert('No valid data to submit.');
+    if (dataToSubmit.length === 0) {
+      alert('No data to submit. All rows have errors.');
       return;
     }
 
-    validData.forEach(row => {
+    // Clear existing submissions first to avoid duplicates
+    dataService.clearSubmissions();
+    
+    // Add all submissions (valid + warnings)
+    dataToSubmit.forEach(row => {
       dataService.addSubmission(row);
     });
 

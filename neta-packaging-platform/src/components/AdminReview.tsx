@@ -24,6 +24,13 @@ const AdminReview: React.FC<AdminReviewProps> = ({ onComplete, onDataUpdate }) =
     loadData();
   }, []);
 
+  // Refresh data when onDataUpdate is called
+  useEffect(() => {
+    if (onDataUpdate) {
+      loadData();
+    }
+  }, [onDataUpdate]);
+
   const loadData = async () => {
     setLoading(true);
     try {
@@ -128,11 +135,13 @@ const AdminReview: React.FC<AdminReviewProps> = ({ onComplete, onDataUpdate }) =
     }
   };
 
-  const filteredSubmissions = submissions.filter(submission => {
+  // Only show submissions without errors (warnings are fine)
+  const validSubmissions = submissions.filter(submission => submission.fee_cents > 0);
+  
+  const filteredSubmissions = validSubmissions.filter(submission => {
     const vendorMatch = filterVendor === 'all' || submission.vendor_id === filterVendor;
-    const statusMatch = filterStatus === 'all' || 
-      (filterStatus === 'valid' && submission.fee_cents > 0) ||
-      (filterStatus === 'invalid' && submission.fee_cents === 0);
+    // Since we only have valid submissions now, status filter is simplified
+    const statusMatch = filterStatus === 'all' || filterStatus === 'valid';
     
     return vendorMatch && statusMatch;
   });
@@ -150,7 +159,7 @@ const AdminReview: React.FC<AdminReviewProps> = ({ onComplete, onDataUpdate }) =
     <div className="admin-review">
       <div className="review-header">
         <h2>Admin Review & Data Management</h2>
-        <p>Review, edit, and manage vendor submissions for EPR compliance</p>
+        <p>Review, edit, and manage valid vendor submissions for EPR compliance (entries with errors are excluded)</p>
       </div>
 
       {/* Filters */}
@@ -178,13 +187,18 @@ const AdminReview: React.FC<AdminReviewProps> = ({ onComplete, onDataUpdate }) =
             value={filterStatus}
             onChange={(e) => setFilterStatus(e.target.value)}
           >
-            <option value="all">All Submissions</option>
+            <option value="all">All Valid Submissions</option>
             <option value="valid">Valid</option>
-            <option value="invalid">Invalid</option>
           </select>
         </div>
 
         <div className="filter-actions">
+          <button 
+            className="action-btn secondary"
+            onClick={loadData}
+          >
+            🔄 Refresh Data
+          </button>
           <button 
             className="action-btn primary"
             onClick={() => exportToCSV(filteredSubmissions, 'admin-review-submissions')}
@@ -217,7 +231,7 @@ const AdminReview: React.FC<AdminReviewProps> = ({ onComplete, onDataUpdate }) =
               const isEditing = editingId === submission.sku_id + submission.material_name;
               
               return (
-                <tr key={index} className={submission.fee_cents > 0 ? 'valid-row' : 'invalid-row'}>
+                <tr key={index} className={`submission-row ${submission.fee_cents > 0 ? 'valid-row' : 'invalid-row'}`}>
                   <td>
                     {isEditing ? (
                       <select
@@ -331,9 +345,17 @@ const AdminReview: React.FC<AdminReviewProps> = ({ onComplete, onDataUpdate }) =
                   </td>
                   
                   <td>
-                    <span className={`status-badge ${submission.fee_cents > 0 ? 'valid' : 'error'}`}>
-                      {submission.fee_cents > 0 ? 'Valid' : 'Invalid'}
-                    </span>
+                    <div className="status-info">
+                      <span className={`status-badge ${submission.fee_cents > 0 ? 'valid' : 'error'}`}>
+                        {submission.fee_cents > 0 ? 'Valid' : 'Invalid'}
+                      </span>
+                      {submission.fee_cents > 0 && (
+                        <div className="fee-details">
+                          <small>Fee: {formatCurrency(submission.fee_cents)}</small>
+                          <small>Rate: {submission.fee_rate_cents_per_gram?.toFixed(6) || '0.000000'}¢/g</small>
+                        </div>
+                      )}
+                    </div>
                   </td>
                   
                   <td>
@@ -360,13 +382,13 @@ const AdminReview: React.FC<AdminReviewProps> = ({ onComplete, onDataUpdate }) =
       <div className="review-summary">
         <div className="summary-stats">
           <div className="stat-item">
-            <strong>Total Submissions:</strong> {filteredSubmissions.length}
+            <strong>Valid Submissions Shown:</strong> {filteredSubmissions.length}
           </div>
           <div className="stat-item">
-            <strong>Valid:</strong> {filteredSubmissions.filter(s => s.fee_cents > 0).length}
+            <strong>Total in Data Service:</strong> {dataService.getSubmissionsCount()}
           </div>
           <div className="stat-item">
-            <strong>Invalid:</strong> {filteredSubmissions.filter(s => s.fee_cents === 0).length}
+            <strong>Excluded (Errors):</strong> {dataService.getSubmissionsCount() - validSubmissions.length}
           </div>
         </div>
         
@@ -374,7 +396,7 @@ const AdminReview: React.FC<AdminReviewProps> = ({ onComplete, onDataUpdate }) =
           <button 
             className="action-btn primary"
             onClick={handleComplete}
-            disabled={filteredSubmissions.filter(s => s.fee_cents === 0).length > 0}
+            disabled={filteredSubmissions.length === 0}
           >
             Continue to Fee Simulation
           </button>

@@ -362,6 +362,10 @@ class DataService {
     return this.submissions;
   }
 
+  getSubmissionsCount(): number {
+    return this.submissions.length;
+  }
+
   getValidationIssues(): ValidationIssue[] {
     return this.validationIssues;
   }
@@ -395,6 +399,12 @@ class DataService {
     if (index >= 0 && index < this.submissions.length) {
       this.submissions[index] = { ...this.submissions[index], ...updates };
     }
+  }
+
+  // Method to clear all submissions (for fresh uploads)
+  clearSubmissions(): void {
+    this.submissions = [];
+    this.validationIssues = [];
   }
 }
 
