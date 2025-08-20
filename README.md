@@ -10,6 +10,7 @@ Follow these steps to get the app running locally:
 
 ```bash
 git clone https://github.com/smritirangarajan/neta-takehome.git
+cd neta-takehome
 cd neta-packaging-platform
 npm install
 npm start
